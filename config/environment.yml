@@ -1,0 +1,20 @@
+name: spot
+channels:
+  - defaults
+dependencies:
+  - scikit-learn
+  - pip
+  - seaborn
+  - numpy
+  - pandas
+  - python[version='<3.7']
+  - matplotlib
+  - scipy
+  - jupyter
+  - numpydoc
+  - spyder
+  - psutil
+  - opencv
+  - spotipy
+
+prefix: /anaconda2/envs/spot
