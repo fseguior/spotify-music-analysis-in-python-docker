@@ -25,40 +25,42 @@ for idx, item in enumerate(results['items']):
    print(idx, track['artists'][0]['name'], " – ", track['name'])
 
 
-#%% 
-
-import json
-with open('data.json', 'w') as f:
-    json.dump(results,f)
-
-results
-
-#%%
-
-type(results['items'])
-
-#%%
-test=(results['items'])
-
-
-len(test[0])
-
-#%%
-test1=(test[0])
-
-
-len(test1)
-type(test1)
-
-#%%%
-test1['track']['id']
-test1['track']['artists']
-#%%
-test[20]['track']['artists']
 
 ## La call a la API trae un Dictionary, en el cual anidado dentro de "items" tenes una lista. En esta lista hay un elemento por cada track escuchado. Cada elemento de esta lista es otro dictionario para el track, que tiene cosas en el root desde el ID, asi como mas dictionarios anidados con data como la de los albums, artistas, etc.
 
 
+#%%
+results = sp.current_user_recently_played()['items']
+tracks=list()
+for item in results:
+    tracks.append(item['track']['id'])
+    print(tracks)
+
+
+#%%
+
+a_feats=sp.audio_features(tracks)
+print(a_feats)
+
+type(a_feats[1])
+
+
+#"danceability","energy","key","loudness","mode", "speechiness", "acousticness","instrumentalness", "liveness", "valence", "tempo"
+#%%
+featsDF=pd.DataFrame(a_feats)
+
+featsDFClean=featsDF[["danceability","energy","key","loudness","mode", "speechiness", "acousticness","instrumentalness", "liveness", "valence", "tempo"]]
+
+
+#%%% 
+from sklearn.cluster import KMeans
+
+kmeans=KMeans(n_clusters=3)
+model=kmeans.fit(featsDFClean)
+model
+
+#%%
+from sklearn_som.som import SOM
 #%%
 
 # Johann Sebastian Bach
