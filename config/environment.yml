@@ -17,4 +17,4 @@ dependencies:
   - opencv
   - spotipy
 
-prefix: /anaconda2/envs/spot
+prefix: /anaconda3/envs/spot
