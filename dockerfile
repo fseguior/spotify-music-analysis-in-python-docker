@@ -5,5 +5,5 @@ WORKDIR /app
 COPY config/environment.yml .
 RUN conda env create -f environment.yml
 
-# Make RUN commands use the new environment:
-SHELL ["conda", "run", "-n", "spotify", "/bin/bash", "-c"]
+#RUN conda init bash
+RUN echo "conda activate spotify" >> ~/.bashrc
