@@ -1,22 +1,17 @@
-name: spot
+name: spotify
 channels:
   - defaults
 dependencies:
-  - scikit-learn
+  - python
   - pip
-  - seaborn
   - numpy
   - pandas
-  - python
   - matplotlib
-  - scipy
+  - seaborn
+  - scikit-learn
   - jupyter
-  - numpydoc
-  - spyder
   - psutil
-  - opencv
-  - spotipy
   - pip:
     - sklearn-som
-
-prefix: /anaconda3/envs/spot
+    - spotipy
+prefix: /anaconda3/envs/spotify
