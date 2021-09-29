@@ -5,10 +5,6 @@ import matplotlib.pyplot as plt
 import spotipy as sp
 from spotipy.oauth2 import SpotifyOAuth
 
-client_ID='76547a2039e2480c8c86946d4889c701'
-client_SECRET='01eb814818ed4655ac6442e2b75691c1'   
-redirect_url='http://localhost:9000'
-
 #Authentication with Spotify
 import credentials as cred
 
