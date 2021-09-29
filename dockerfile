@@ -5,5 +5,5 @@ WORKDIR /app
 COPY config/environment.yml .
 RUN conda env create -f environment.yml
 
-#RUN conda init bash
-RUN echo "conda activate spotify" >> ~/.bashrc
+# Activate environment
+RUN echo "conda activate spotify && /opt/conda/bin/conda install jupyter -y --quiet" >> ~/.bashrc
