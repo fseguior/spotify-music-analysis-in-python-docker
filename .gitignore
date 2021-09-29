@@ -1,3 +1,4 @@
 credentials.py
-.cache
 __pycache__/
+credentials*
+.cache
