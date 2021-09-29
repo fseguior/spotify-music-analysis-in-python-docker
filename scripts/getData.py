@@ -30,4 +30,3 @@ featsDF
 featsCSV=featsDF.to_csv(path_or_buf="/app/data/data.csv", index=False)
 
 print(featsCSV)
-
