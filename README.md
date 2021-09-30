@@ -26,8 +26,9 @@ To run the notebooks and scripts follow these steps:
 
 ### Setting up a Spotify App to get the Authorization Tokens
 1. Log into the [Spotify Developer Site](https://developer.spotify.com/dashboard/applications) and create an App
-2. After that copy the ClientID and the ClientSecret keys. Update the ***./scripts/credentials.py*** file on this repo with those values
-3. Under edit settings, add an entry under ***"Redirect URIs"*** that is set to http://localhost:9000
+2. Under edit settings, add an entry under ***"Redirect URIs"*** that is set to http://localhost:9000
+3. After that copy the ClientID and the ClientSecret keys. Update the ***./scripts/credentials.py*** file on this repo with those values
+
 
 Further references:
 
