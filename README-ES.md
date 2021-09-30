@@ -35,7 +35,7 @@ Referencias adicionales:
 [Spotify Authorization Guide](https://developer.spotify.com/documentation/general/guides/authorization-guide/)
 
 ### Integrar Docker, Anaconda & Jupyter Notebooks
-In order to make the scripts and notebooks portable, everything runs on a Docker container based on the image ***continuumio/miniconda3***. This allows to run Anaconda in the container to manage packages.
+Para hacer que el ambiente sea portable, todo corre en un Docker container basado en la imagen ***continuumio/miniconda3***. Esto permite correr Anaconda en un container para manejar los paquetes.
 
 The configuration of this container is found on the ***dockerfile***. After selecting the conda image, the container reates and then activates a custom environment named ***spotify*** based on the YAML configuration file ***./config/Environment.yml***. This installs all of the needed libraries in the environment.
 
