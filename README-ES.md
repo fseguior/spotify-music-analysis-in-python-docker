@@ -5,7 +5,7 @@ Este proyecto utiliza la Spotify Web API y Python corriendo en un Docker Contain
 Referencias adicionales:
 
 - [Spotify Web API](https://developer.spotify.com/documentation/web-api/reference/)
-- [Spotipy Python Library](https://spotipy.readthedocs.io/)
+- [Spotipy Librería Python](https://spotipy.readthedocs.io/)
 
 
 ## Como correr los notebooks y scripts de este repositorio
@@ -26,22 +26,26 @@ Para correr los notebooks y scripts, seguir los siguientes pasos:
 ## Set Up y Configuración
 
 ### Configurar una Spotify App para obtener Authorization Tokens
-1. Loguearse a [Spotify Developer Site](https://developer.spotify.com/dashboard/applications) y crear una App
+1. Loguearse a [Sitio Spotify Developer](https://developer.spotify.com/dashboard/applications) y crear una App
 2. En "Edit settings", agregar una entrada bajo ***"Redirect URIs"*** con el valor http://localhost:9000
 3. Copiar las keys de ClientID y ClientSecret. Actualizar el archivo del repositorio ***./scripts/credentials.py*** con esos valores
 
 Referencias adicionales:
 
-[Spotify Authorization Guide](https://developer.spotify.com/documentation/general/guides/authorization-guide/)
+[Guía Autorización Spotify](https://developer.spotify.com/documentation/general/guides/authorization-guide/)
 
 ### Integrar Docker, Anaconda & Jupyter Notebooks
 Para hacer que el ambiente sea portable, todo corre en un Docker container basado en la imagen ***continuumio/miniconda3***. Esto permite correr Anaconda en un container para manejar los paquetes.
 
-The configuration of this container is found on the ***dockerfile***. After selecting the conda image, the container reates and then activates a custom environment named ***spotify*** based on the YAML configuration file ***./config/Environment.yml***. This installs all of the needed libraries in the environment.
+La configuración de este container se encuentra en el ***dockerfile***. Después de seleccionar la imagen de conda, el container crea y luego activa el ambiente customizado llamado ***spotify*** basado en el archivo de configuración YAML ***./config/Environment.yml***. Esto instala todos los paquetes necesarios en el ambiente.
 
-In order to build and run this environment, the ***docker build*** and ***docker run*** sentences are saved on the file ***./run.sh***. The ***docker run*** command publishes port 8888 on the host to the same port in the container, in order to make the Jupyter notebooks accesible from the host. It also mounts the repo folder as a volume of the container. The ***docker run*** command finally runs on an interactive bash the script ***./config/startnotebook.sh***. This bash script runs the Python script ***./scripts/getData.py*** which uses the Spotipy library to authenticate using the tokens, and then make an API call to get the audio features for the last 50 tracks a user has listened to. The output is saved as a CSV on the ***./data/Data.csv*** file. This CSV is then used by the notebook ***./notebooks/spotify-music-analysis.ipynb*** that does the processing of the data applying K-Means, Self-Organized Maps (Kohonen) and Princpial Components Analysis (PCA) techniques. The reason to run the ***getData.py*** decoupled from the notebook is that API token authentication from the notebook the method would fail, but run ok from the python command line. 
+
+Para buildear y correr el ambiente, las sentencias ***docker build*** y ***docker run*** se guardan en el archivo ***./run.sh***. 
+
+El comando ***docker run*** publica el puerto 8888 en el host con el mismo puerto en el container, de forma tal que hace accesible el Jupyter notebook desde el host. También monta la carpeta del repo como un volumen del container. El comando ***docker run*** finalmente corre de forma interactiva el script bash ***./config/startnotebook.sh***. Este script bash corre el script Python ***./scripts/getData.py*** que utiliza la librería Spotipy para autenticarse usando tokens, y después hacer una llamada a la API para obtener los audio features de las últimas 50 canciones que el usuario escuchó. El output se guarda como un CSV en el archivo ***./data/Data.csv***. 
+Este CSV es usado luego por el notebook ***./notebooks/spotify-music-analysis.ipynb*** que hace el procesamiento de los datos aplicando técnicas de K-Means, Mapas autoorganizados (Kohonen) y Análisis de Componentes Principales (PCA). La razón de correr ***getData.py*** separado del notebook es que el método de autorización de la API mediante las tokens falla en el notebook, pero corre ok desde una línea de comando de Python. Para esta autorización la librería crea un web server en el puerto especificado, y en el notebook dentro del container falla.
 
 Referencias adicionales:
 
-- [Activating Anaconda in Docker](https://pythonspeed.com/articles/activate-conda-dockerfile/)
-- [Docker - Anaconda Documentation](https://docs.anaconda.com/anaconda/user-guide/tasks/docker/)
+- [Activar Anaconda en Docker](https://pythonspeed.com/articles/activate-conda-dockerfile/)
+- [Documentación Docker - Anaconda](https://docs.anaconda.com/anaconda/user-guide/tasks/docker/)
