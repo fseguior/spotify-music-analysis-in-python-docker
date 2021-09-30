@@ -1,4 +1,5 @@
 .cache
 credentials.py
+scripts/credentials.py
 **/__pycache__
 .ipynb_checkpoints
