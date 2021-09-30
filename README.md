@@ -8,7 +8,9 @@ Further references:
 
 
 ## How to run the notebooks and scripts on this Repository
-The notebooks and scripts on this Repo are configured to run in Linux, in my case I used WSL2 with ***Ubuntu 20.004 LTS***
+This Repo are configured to be run in Linux, in my case I used ***WSL2*** with ***Ubuntu 20.004 LTS***
+
+To run the notebooks and scripts follow these steps:
 
 1. Clone the repository
 2. Create a Spotify App following the steps described below under **"Setting up a Spotify App to get the Authentication Tokens"**
