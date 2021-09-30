@@ -15,7 +15,7 @@ The notebooks and scripts on this Repo are configured to run in Linux, in my cas
 3. When the script finishes running, in the command line you will see the link to open the Jupyter Notebook. The path wil look like http://127.0.0.1:8888/?token=token
 4. The Notebook used for the analysis can be found under ***.notebooks/spotify-music-analysis.ipynb***
   
-  [Spotify Music Analysis Notebook](https://github.com/fseguior/spotify-music-analysis-in-python-docker/blob/main/notebooks/spotify-music-analysis.ipynb)
+  [Notebook Spotify Music Analysis](https://github.com/fseguior/spotify-music-analysis-in-python-docker/blob/main/notebooks/spotify-music-analysis.ipynb)
 
   
 ## Set up and Configuration
