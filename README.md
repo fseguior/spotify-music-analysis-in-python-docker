@@ -13,7 +13,7 @@ This Repo are configured to be run in Linux, in my case I used ***WSL2*** with *
 To run the notebooks and scripts follow these steps:
 
 1. Clone the repository
-2. Create a Spotify App following the steps described below under **"Setting up a Spotify App to get the Authentication Tokens"**
+2. Create a Spotify App following the steps described below under **"Setting up a Spotify App to get the Authorization Tokens"**
 3. Edit the file named "credentials.py" under the ./scripts folder, and save the values for ***client_ID*** and ***client_SECRET***. These are empty on this repo as they are private keys to the user, ***credentials.py*** is ignored by the .gitignore file.
 4. From a bash command line on the root folder of the repo run ***bash run.sh***. The prior step will build and run a container, with Anaconda and Jupyter Notebooks installed (details on the config provided on the "Set Up and Configuration" section)
 5. When the script finishes running, in the command line you will see the link to open the Jupyter Notebook. The path wil look like http://127.0.0.1:8888/?token=token
@@ -24,7 +24,7 @@ To run the notebooks and scripts follow these steps:
   
 ## Set up and Configuration
 
-### Setting up a Spotify App to get the Authentication Tokens
+### Setting up a Spotify App to get the Authorization Tokens
 1. Log into the [Spotify Developer Site](https://developer.spotify.com/dashboard/applications) and create an App
 2. After that copy the ClientID and the ClientSecret keys. Update the ***./scripts/credentials.py*** file on this repo with those values
 3. Under edit settings, add an entry under ***"Redirect URIs"*** that is set to http://localhost:9000
